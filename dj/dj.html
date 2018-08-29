@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>djj..</title>
+    <style>
+    *
+    {
+        padding:0;
+        margin:0;
+        
+    
+        }
+        html,body
+        {
+            height:100%;
+            width:100%;
+            background:azure;
+        }
+        .keys
+        {
+            display:flex;
+           position: relative;
+            top: 50%;
+            left: 50%;
+            
+            
+        }
+        .key
+        {
+          width:70px;
+            height:70px;
+            border:1px solid #111;
+            line-height: 70px;
+            text-align: center;
+            font-size:32px;
+            margin:10px;
+            transition: all ease-in-out 0.15s;
+        }
+        .glow
+        {
+            border:none;
+            background: #ffff00;
+            transform: scale(1.5);
+            cursor: pointer;
+        }
+    </style>
+   </head>
+ <body>
+     <div class="keys">
+         <div data-key="65" class="key">A</div>
+          <div data-key="66" class="key">B</div>
+          <div data-key="67" class="key">C</div>
+          <div data-key="68" class="key">D</div>
+     </div>
+    
+     <audio data-key="65"  src="Sleep%20Away.mp3"></audio>
+       <audio data-key="66" src="Sleep%20Away.mp3"></audio>
+       <audio data-key="67"   src="Sleep%20Away.mp3"></audio>
+       <audio data-key="68"  src="Sleep%20Away.mp3"></audio>
+     <script>
+      window.addEventListener('keydown',hi,false);
+         function hi(e)                                               
+       {
+          var audio=document.querySelector('audio[data-key="'+e.keyCode+'"]');
+           if(!audio) return;
+           audio.currentTime=0;
+           console.log(audio);
+           var elem=document.querySelector('div[data-key="'+e.keyCode+'"]'); 
+           console.log(elem);
+           elem.classList.add('glow');
+           setTimeout(function(){ elem.classList.remove('glow');},100);
+           audio.play();
+           
+        
+      } 
+       //<script src="script1.jss>                              
+     </script>
+    </body>
+</html>
